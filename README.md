@@ -7,3 +7,5 @@ The basic idea is simple: give the service a long URL, get a short URL back, and
 
 ## How It Works
 The application uses PostgreSQL as the main database and Redis for caching and click tracking. Additionally it also uses micrometer, prometheus and grafan for monitoring the application.
+
+![URL Shortener Architecture](images/architecture.drawio.png)

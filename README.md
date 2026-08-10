@@ -9,3 +9,13 @@ The basic idea is simple: give the service a long URL, get a short URL back, and
 The application uses PostgreSQL as the main database and Redis for caching and click tracking. Additionally it also uses micrometer, prometheus and grafan for monitoring the application.
 
 ![URL Shortener Architecture](images/architecture1.png)
+When a user creates a short URL, the URL mapping is stored in PostgreSQL. A short code is generated using Base62 and returned to the user.
+
+When someone accesses the short URL, the application first checks Redis. If the URL is already cached, it can be returned without querying PostgreSQL.
+
+## Why I Used Redis
+URL shorteners are mostly read-heavy. A popular short URL could potentially be accessed thousands of times while the actual URL mapping rarely changes.
+
+Because of that, querying PostgreSQL every time isn't ideal.
+
+I use Redis as a cache:

@@ -19,3 +19,6 @@ URL shorteners are mostly read-heavy. A popular short URL could potentially be a
 Because of that, querying PostgreSQL every time isn't ideal.
 
 I use Redis as a cache:
+
+![URL Shortener Redis Architecture](images/getAPI.drawio.png)
+

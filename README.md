@@ -8,7 +8,7 @@ The basic idea is simple: give the service a long URL, get a short URL back, and
 ## How It Works
 The application uses PostgreSQL as the main database and Redis for caching and click tracking. Additionally it also uses micrometer, prometheus and grafan for monitoring the application.
 
-![URL Shortener Architecture](images/architecture1.png)
+![URL Shortener Architecture](images/architecture.drawio.png)
 
 When a user creates a short URL, the URL mapping is stored in PostgreSQL. A short code is generated using Base62 and returned to the user.
 
@@ -21,12 +21,14 @@ Because of that, querying PostgreSQL every time isn't ideal.
 
 I use Redis as a cache:
 
-![URL Shortener Redis Architecture](images/getAPI.drawio.png)
+![URL Shortener Redis Architecture](images/cache.drawio.png)
 
 ## click tracking
 The service also keeps track of how many times each shortened URL has been accessed.
 
 Rather than updating PostgreSQL on every single request, I use Redis to increment the click count.
+
+![URL Shortener click tracking Architecture](images/clickTracking.jpg)
 
 A scheduled process periodically moves the accumulated click counts from Redis into PostgreSQL.
 

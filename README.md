@@ -76,9 +76,7 @@ The test recorded around 701,000 cache hits and 0 cache misses. Since the URL be
 | Maven | Build and dependency management |
 
 
-# Running the Project
-
-## Requirements
+## Running the Project
 
 You'll need:
 
@@ -87,7 +85,7 @@ You'll need:
 * Docker
 * Docker Compose
 
-## Start the Infrastructure
+### Start the Infrastructure
 
 Start the required infrastructure services with:
 
@@ -111,7 +109,7 @@ http://localhost:8080
 
 ---
 
-# What I Learned
+## What I Learned
 
 The main goal of this project wasn't just to build a URL shortener.
 
@@ -130,7 +128,7 @@ While building it, I gained experience with concepts that aren't always obvious 
 
 ---
 
-# Why I Built This
+## Why I Built This
 
 I wanted a project where I could go beyond building simple CRUD endpoints and actually think about **how a backend behaves under real usage**.
 

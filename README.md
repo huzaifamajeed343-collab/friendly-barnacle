@@ -41,7 +41,7 @@ I used k6 to load test the GET /{shortCode} redirect endpoint, which is the main
 
 The test ramped up to 500 virtual users and generated 701,617 requests. The service handled all requests successfully with a 0% failure rate.
 
-![load test result](images/simulation result.png)
+![load test result](images/simulationresult.png)
 
 ### Test Results
 - Virtual Users: 500
@@ -51,5 +51,14 @@ The test ramped up to 500 virtual users and generated 701,617 requests. The serv
 - 95th Percentile: 72.47 ms
 - Maximum Response Time: 348.73 ms
 - Failed Requests: 0%
+
+### Cache Performance
+
+I also used Prometheus and Grafana to see how Redis performed during the test.
+
+The test recorded around 701,000 cache hits and 0 cache misses. Since the URL being tested was already cached in Redis before the test started, the requests were served directly from the cache.
+
+![cache hit and miss visualization](images/simulationresult.png)
+
 
 

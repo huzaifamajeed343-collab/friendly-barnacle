@@ -36,3 +36,20 @@ This means the database doesn't have to handle a write for every redirect.
 
 I also use a rename-based approach during synchronization so that the counter being processed is separated from the counter that is still receiving new clicks.
 
+## Testing performance
+I used k6 to load test the GET /{shortCode} redirect endpoint, which is the main read path of the service.
+
+The test ramped up to 500 virtual users and generated 701,617 requests. The service handled all requests successfully with a 0% failure rate.
+
+![load test result](images/simulation result.png)
+
+### Test Results
+- Virtual Users: 500
+- Total Requests: 701,617
+- Average Response Time: 22.18 ms
+- Median Response Time: 11.36 ms
+- 95th Percentile: 72.47 ms
+- Maximum Response Time: 348.73 ms
+- Failed Requests: 0%
+
+

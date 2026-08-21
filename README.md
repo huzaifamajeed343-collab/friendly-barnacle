@@ -58,7 +58,7 @@ I also used Prometheus and Grafana to see how Redis performed during the test.
 
 The test recorded around 701,000 cache hits and 0 cache misses. Since the URL being tested was already cached in Redis before the test started, the requests were served directly from the cache.
 
-![cache hit and miss visualization](images/simulationresult.png)
+![cache hit and miss visualization](images/cache-hit-and-miss.png)
 
 
 

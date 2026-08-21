@@ -60,5 +60,84 @@ The test recorded around 701,000 cache hits and 0 cache misses. Since the URL be
 
 ![cache hit and miss visualization](images/cache-hit-and-miss.png)
 
+## Tech Stack
+
+| Technology | What I used it for |
+|------------|--------------------|
+| Java | Backend development |
+| Spring Boot | REST API and application framework |
+| PostgreSQL | Persistent data storage |
+| Redis | Caching and click counters |
+| Docker | Running infrastructure |
+| Docker Compose | Managing local services |
+| Micrometer | Application metrics |
+| Prometheus | Collecting metrics |
+| Grafana | Visualizing metrics |
+| Maven | Build and dependency management |
+
+
+# Running the Project
+
+## Requirements
+
+You'll need:
+
+* Java
+* Maven
+* Docker
+* Docker Compose
+
+## Start the Infrastructure
+
+Start the required infrastructure services with:
+
+```bash
+docker compose up -d
+```
+
+This starts services such as **PostgreSQL** and **Redis**.
+
+Then start the Spring Boot application from IntelliJ or with:
+
+```bash
+./mvnw spring-boot:run
+```
+
+The API will be available at:
+
+```text
+http://localhost:8080
+```
+
+---
+
+# What I Learned
+
+The main goal of this project wasn't just to build a URL shortener.
+
+While building it, I gained experience with concepts that aren't always obvious when working on smaller projects:
+
+* Designing a backend with multiple layers
+* Working with PostgreSQL and Redis together
+* Understanding when caching is useful
+* Handling frequently updated data with Redis
+* Synchronizing data between Redis and PostgreSQL
+* Containerizing infrastructure with Docker
+* Adding application metrics
+* Using Prometheus and Grafana for monitoring
+* Thinking about performance and database load
+* Debugging networking issues between Docker, WSL, and the application
+
+---
+
+# Why I Built This
+
+I wanted a project where I could go beyond building simple CRUD endpoints and actually think about **how a backend behaves under real usage**.
+
+The URL shortening problem is simple enough to understand, but it also creates opportunities to work with caching, database design, concurrency, monitoring, and system performance.
+
+That's what made it a useful project for me to learn from.
+
+
 
 
